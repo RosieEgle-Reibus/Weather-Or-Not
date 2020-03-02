@@ -24,10 +24,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Text field sends user entry/activity to VC
         searchTextField.delegate = self
-       
+        
     }
-
+    
     @IBAction func searchButtonPressed(_ sender: UIButton) {
+        
         //Dismiss keyboard after press
         searchTextField.endEditing(true)
     }
@@ -40,17 +41,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //triggered by endEditing method
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         //since text is an optional string uses if/let to unwrap and send over to VM for fetching
         if let city = searchTextField.text {
             currentWeatherVM.fecthCurrentWeather(cityName: city)
         }
-        
         //resets textfield
         searchTextField.text = ""
     }
     
     //text field asks VC(delegate) if should end editing
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
         //prompts if empty string, ends editing if string
         if textField.text != "" {
             return true

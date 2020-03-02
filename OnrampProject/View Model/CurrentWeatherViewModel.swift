@@ -13,7 +13,35 @@ struct CurrentWeatherViewModel {
     
     func fecthCurrentWeather(cityName: String) {
         let url = "\(currentWeatherURL)&q=\(cityName)"
-        print(url)
+        performRequest(urlString: url)
     }
+    
+    func performRequest(urlString: String) {
+        
+        //create optional URL String
+        if let url = URL(string: urlString) {
+            
+            //session is an object that coordinates group of related network data-transfer tasks
+            let session = URLSession(configuration: .default)
+            
+            //task calls closure completion handler when it is done retrieving data
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                if let safeData = data {
+                    //turn data into string
+                    let dataString = String(data: safeData, encoding: .utf8)
+                    print(dataString)
+                }
+            }
+            
+            //default is to begin in suspended state, resume starts the task
+            task.resume()
+        }
+    }
+    
+   
     
 }
