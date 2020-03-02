@@ -7,18 +7,56 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var searchTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Text field sends user entry/activity to VC
+        searchTextField.delegate = self
        
     }
 
-
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        
-        let hourlyVC = HourlyViewController()
-        self.present(hourlyVC, animated: true, completion: nil)
+        //Dismiss keyboard after press
+        searchTextField.endEditing(true)
     }
+    
+    //textField asks VC(delegate) if it should process pressing of Go Button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+    //triggered by endEditing method
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //resets textfield
+        searchTextField.text = ""
+    }
+    
+    //text field asks VC(delegate) if should end editing
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        //prompts if empty string, ends editing if string
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Please enter City"
+            return false
+        }
+    }
+    
+    
 }
 
+
+
+
+//let hourlyVC = HourlyViewController()
+//     self.present(hourlyVC, animated: true, completion: nil)
