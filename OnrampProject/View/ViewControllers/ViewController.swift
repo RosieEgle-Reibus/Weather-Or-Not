@@ -10,11 +10,14 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     
+    
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    //connects ViewModel to ViewController
+    var currentWeatherVM = CurrentWeatherViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //triggered by endEditing method
     func textFieldDidEndEditing(_ textField: UITextField) {
+        //since text is an optional string uses if/let to unwrap and send over to VM for fetching
+        if let city = searchTextField.text {
+            currentWeatherVM.fecthCurrentWeather(cityName: city)
+        }
+        
         //resets textfield
         searchTextField.text = ""
     }
