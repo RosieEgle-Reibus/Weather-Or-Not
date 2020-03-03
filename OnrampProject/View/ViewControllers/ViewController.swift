@@ -16,8 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
-    //connects ViewModel to ViewController
     
+    //connects ViewModel to ViewController
     var currentWeatherViewModel = CurrentWeatherViewModel()
     
     override func viewDidLoad() {
@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
         searchTextField.delegate = self
         currentWeatherViewModel.delegate = self
         
+        //sets city as the last city searched stored in defaults and displays data
         if let city = defaults.string(forKey: "CityNameDefault") {
             currentWeatherViewModel.fecthCurrentWeather(cityName: city)
         }
@@ -51,6 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
         if let city = searchTextField.text {
             currentWeatherViewModel.fecthCurrentWeather(cityName: city)
             
+            //sets userdefault
             defaults.set( city, forKey: "CityNameDefault")
             
         }
@@ -81,10 +83,24 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     func didFailWithError(error: Error) {
         print(error)
     }
+    
+    
+    @IBAction func hourlyButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToHourly", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToHourly" {
+            let destinationVC = segue.destination as! SecondViewController
+            destinationVC.city = cityLabel.text
+        }
+    }
+    
+    
 }
 
+ 
 
 
 
-//let hourlyVC = HourlyViewController()
-//     self.present(hourlyVC, animated: true, completion: nil)

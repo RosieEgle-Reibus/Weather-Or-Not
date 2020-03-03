@@ -73,6 +73,9 @@
                                     <segment title="Hourly"/>
                                     <segment title="5-Day"/>
                                 </segments>
+                                <connections>
+                                    <action selector="hourlySegmentPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="3Bh-K6-JeQ"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Snow Storm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlT-xt-fad">
                                 <rect key="frame" x="52" y="534" width="311" height="40"/>
@@ -81,6 +84,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1q-xI-PC4">
+                                <rect key="frame" x="145" y="668" width="124" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.11086369309999999" green="0.26245692370000001" blue="0.28236412999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Hourly">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="hourlyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zU9-kV-rMO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -90,39 +104,50 @@
                         <outlet property="descriptionLabel" destination="BlT-xt-fad" id="TeG-xo-R57"/>
                         <outlet property="searchTextField" destination="Zzt-01-V06" id="p44-N5-1AM"/>
                         <outlet property="temperatureLabel" destination="xsl-Re-UMA" id="azd-9C-m3S"/>
+                        <segue destination="hYP-rN-lwv" kind="presentation" identifier="goToHourly" modalPresentationStyle="fullScreen" id="gPe-4K-aFN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--Hourly View Controller-->
-        <scene sceneID="W3i-8c-VNR">
+        <!--Second View Controller-->
+        <scene sceneID="SBQ-Ut-2sP">
             <objects>
-                <tableViewController id="VZD-Re-SZ5" customClass="HourlyViewController" customModule="OnrampProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CbO-Vz-fzV">
+                <viewController id="hYP-rN-lwv" customClass="SecondViewController" customModule="OnrampProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5NF-U7-RLT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBI-b9-en3">
+                                <rect key="frame" x="82" y="192" width="251" height="137"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-kV-Gii">
+                                <rect key="frame" x="152" y="791" width="110" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.11086369309999999" green="0.26245692370000001" blue="0.28236412999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Current">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="currentButtonPressed:" destination="hYP-rN-lwv" eventType="touchUpInside" id="tIR-wS-eth"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HourlyWeatherItem" id="l4V-PS-6Ao">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l4V-PS-6Ao" id="YKH-Rm-3YU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="VZD-Re-SZ5" id="vM8-gx-df7"/>
-                            <outlet property="delegate" destination="VZD-Re-SZ5" id="JuB-f9-XA8"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ab9-aB-bPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="EOW-V1-jwY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="qBI-b9-en3" id="seD-AY-5dG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfy-2o-RXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="138"/>
+            <point key="canvasLocation" x="850.72463768115949" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
