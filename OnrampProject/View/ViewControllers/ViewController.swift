@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDelegate {
     
     
     
@@ -17,14 +17,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchTextField: UITextField!
     
     //connects ViewModel to ViewController
-    var currentWeatherVM = CurrentWeatherViewModel()
+    
+    var currentWeatherViewModel = CurrentWeatherViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Text field sends user entry/activity to VC
         searchTextField.delegate = self
-        
+        currentWeatherViewModel.delegate = self
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
@@ -44,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //since text is an optional string uses if/let to unwrap and send over to VM for fetching
         if let city = searchTextField.text {
-            currentWeatherVM.fecthCurrentWeather(cityName: city)
+            currentWeatherViewModel.fecthCurrentWeather(cityName: city)
         }
         //resets textfield
         searchTextField.text = ""
@@ -62,6 +63,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func didUpdateWeather(_ currentWeatherViewModel: CurrentWeatherViewModel, weather: CurrentWeatherModel ) {
+        print(weather.temp)
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
     
 }
 
