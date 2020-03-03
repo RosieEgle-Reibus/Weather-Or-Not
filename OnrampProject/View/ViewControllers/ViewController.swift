@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDelegate {
     
-    
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -26,6 +26,10 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
         //Text field sends user entry/activity to VC
         searchTextField.delegate = self
         currentWeatherViewModel.delegate = self
+        
+        if let city = defaults.string(forKey: "CityNameDefault") {
+            currentWeatherViewModel.fecthCurrentWeather(cityName: city)
+        }
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
@@ -46,6 +50,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
         //since text is an optional string uses if/let to unwrap and send over to VM for fetching
         if let city = searchTextField.text {
             currentWeatherViewModel.fecthCurrentWeather(cityName: city)
+            
+            defaults.set( city, forKey: "CityNameDefault")
+            
         }
         //resets textfield
         searchTextField.text = ""
@@ -69,13 +76,11 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
             self.cityLabel.text = weather.cityName
             self.descriptionLabel.text = weather.description
         }
-        
     }
     
     func didFailWithError(error: Error) {
         print(error)
     }
-    
 }
 
 
