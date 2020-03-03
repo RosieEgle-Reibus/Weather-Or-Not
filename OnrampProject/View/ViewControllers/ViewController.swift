@@ -64,7 +64,12 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     }
     
     func didUpdateWeather(_ currentWeatherViewModel: CurrentWeatherViewModel, weather: CurrentWeatherModel ) {
-        print(weather.temp)
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.tempString
+            self.cityLabel.text = weather.cityName
+            self.descriptionLabel.text = weather.description
+        }
+        
     }
     
     func didFailWithError(error: Error) {
