@@ -31,9 +31,7 @@ struct CurrentWeatherViewModel {
                     return
                 }
                 if let safeData = data {
-                    //turn data into string
-                    let dataString = String(data: safeData, encoding: .utf8)
-                    print(dataString)
+                    self.parseJSON(weatherData: safeData)
                 }
             }
             
@@ -42,6 +40,17 @@ struct CurrentWeatherViewModel {
         }
     }
     
+    func parseJSON(weatherData: Data) {
+        let decoder = JSONDecoder()
+        
+        //in case throws error added catch
+        do {
+        let decodedData = try decoder.decode(CurrentWeatherData.self, from: weatherData)
+            print(decodedData.name  )
+        } catch {
+            print(error)
+        }
+    }
    
     
 }
