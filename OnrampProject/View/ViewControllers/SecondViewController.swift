@@ -20,17 +20,19 @@ class SecondViewController: UIViewController {
         HourlyModel(cityName: "Atlanta", temp: 62.33, description: "light wind") 
     ]
     
+    var hourlyViewModel = HourlyViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         cityNameLabel.text = city
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HourlyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        hourlyViewModel.fecthHourlyWeather(cityName: city!)
     }
     
 
     @IBAction func currentButtonPressed(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
     }
     
