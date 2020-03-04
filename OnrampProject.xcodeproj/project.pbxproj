@@ -16,6 +16,7 @@
 		3485609D240F2CDC008ADDAC /* HourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485609B240F2CDC008ADDAC /* HourlyCell.swift */; };
 		3485609E240F2CDC008ADDAC /* HourlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3485609C240F2CDC008ADDAC /* HourlyCell.xib */; };
 		348560A0240F4409008ADDAC /* HourlyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485609F240F4409008ADDAC /* HourlyData.swift */; };
+		348560A2241066D7008ADDAC /* HourlyArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348560A1241066D7008ADDAC /* HourlyArrayModel.swift */; };
 		6030FC7023FF0C79007F0901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC6F23FF0C79007F0901 /* AppDelegate.swift */; };
 		6030FC7223FF0C79007F0901 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC7123FF0C79007F0901 /* SceneDelegate.swift */; };
 		6030FC7423FF0C79007F0901 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC7323FF0C79007F0901 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		3485609B240F2CDC008ADDAC /* HourlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCell.swift; sourceTree = "<group>"; };
 		3485609C240F2CDC008ADDAC /* HourlyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyCell.xib; sourceTree = "<group>"; };
 		3485609F240F4409008ADDAC /* HourlyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyData.swift; sourceTree = "<group>"; };
+		348560A1241066D7008ADDAC /* HourlyArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyArrayModel.swift; sourceTree = "<group>"; };
 		6030FC6C23FF0C79007F0901 /* OnrampProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnrampProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6030FC6F23FF0C79007F0901 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6030FC7123FF0C79007F0901 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				347C65B4240DD9690051A837 /* CurrentWeatherModel.swift */,
 				34856099240F256F008ADDAC /* HourlyModel.swift */,
 				3485609F240F4409008ADDAC /* HourlyData.swift */,
+				348560A1241066D7008ADDAC /* HourlyArrayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				6030FC7423FF0C79007F0901 /* ViewController.swift in Sources */,
 				348560A0240F4409008ADDAC /* HourlyData.swift in Sources */,
 				3485609A240F256F008ADDAC /* HourlyModel.swift in Sources */,
+				348560A2241066D7008ADDAC /* HourlyArrayModel.swift in Sources */,
 				6030FC7023FF0C79007F0901 /* AppDelegate.swift in Sources */,
 				34856098240F10F3008ADDAC /* SecondViewController.swift in Sources */,
 				347C65B5240DD9690051A837 /* CurrentWeatherModel.swift in Sources */,

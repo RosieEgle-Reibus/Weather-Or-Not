@@ -15,9 +15,9 @@ class SecondViewController: UIViewController {
     
     var city: String?
     var hourlyArray: [HourlyModel] = [
-        HourlyModel(cityName: "Paris", temp: 65.44, description: "light clouds"),
-        HourlyModel(cityName: "Toronto", temp: 63.55, description: "light rain"),
-        HourlyModel(cityName: "Atlanta", temp: 62.33, description: "light wind") 
+        HourlyModel(dt_txt: "Paris", temp: 65.44, description: "light clouds"),
+        HourlyModel(dt_txt: "Toronto", temp: 63.55, description: "light rain"),
+        HourlyModel(dt_txt: "Atlanta", temp: 62.33, description: "light wind")
     ]
     
     var hourlyViewModel = HourlyViewModel()
@@ -45,6 +45,7 @@ extension SecondViewController: UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! HourlyCell
+            cell.hourLabel.text = hourlyArray[indexPath.row].dt_txt
             cell.descriptionLabel.text = hourlyArray[indexPath.row].description
            return cell
         }

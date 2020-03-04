@@ -8,7 +8,7 @@
 import Foundation
 
 struct HourlyModel {
-    let  cityName: String
+    let dt_txt: String
     let temp: Double
     let description: String
     
