@@ -7,27 +7,21 @@
 
 import Foundation
 
-struct HourlyData {
-    let temp: Double
-    let time: String
-    let description: String
-    
-    enum CodingKeys: String, CodingKey {
-        case list = "list"
-        case main = "main"
-        case temp = "temp"
-        case weather = "weather"
-        case description = "description"
-        case dt_txt = "dt_txt"
-    }
-    
+
+struct HourlyData: Codable {
+    let list: [List]
 }
 
-extension HourlyData: Decodable {
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+struct List: Codable {
+    let main: Main
+    let weather: [Weather]
+    struct Main: Codable {
+        let temp: Double
     }
+    struct Weather: Codable {
+        let description: String
+    }
+    let dt_txt: String
 }
 
 
@@ -36,17 +30,5 @@ extension HourlyData: Decodable {
 
 
 
-
-
-
-//struct HourlyData: Codable {
-//    let list: [List]
-//
-//}
-//
-//struct List: Codable {
-//    let dt: Int
-//    let dt_txt: String
-//}
 
 

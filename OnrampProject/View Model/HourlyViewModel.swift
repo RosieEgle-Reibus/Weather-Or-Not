@@ -32,27 +32,16 @@ struct HourlyViewModel {
     }
     
     func parseJSON(hourlyData: Data) {
-        let data
+       let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(HourlyData.self, from: hourlyData)
+            print(decodedData.list[0].main.temp)
+            
+        } catch {
+            print(error)
+        }
         
-        
-        
-        
-        
-        
-        
+    }
 
-//        do {
-//
-//            }
-//        let decodedData = try decoder.decode(HourlyData.self, from: hourlyData)
-//            print(decodedData.list[0].dt)
-//            print(decodedData.list[6].dt)
-//            print(decodedData.list[6].dt_txt)
-//        } catch {
-//            print(error)
-//        }
-//    }
 
 }
-
-
