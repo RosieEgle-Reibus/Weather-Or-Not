@@ -19,6 +19,8 @@
 		348560A2241066D7008ADDAC /* HourlyArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348560A1241066D7008ADDAC /* HourlyArrayModel.swift */; };
 		348560A424119204008ADDAC /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348560A324119204008ADDAC /* ThirdViewController.swift */; };
 		348560A624119C06008ADDAC /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348560A524119C06008ADDAC /* DailyModel.swift */; };
+		348560A92411B907008ADDAC /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348560A72411B907008ADDAC /* DailyCell.swift */; };
+		348560AA2411B907008ADDAC /* DailyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348560A82411B907008ADDAC /* DailyCell.xib */; };
 		6030FC7023FF0C79007F0901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC6F23FF0C79007F0901 /* AppDelegate.swift */; };
 		6030FC7223FF0C79007F0901 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC7123FF0C79007F0901 /* SceneDelegate.swift */; };
 		6030FC7423FF0C79007F0901 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC7323FF0C79007F0901 /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 		348560A1241066D7008ADDAC /* HourlyArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyArrayModel.swift; sourceTree = "<group>"; };
 		348560A324119204008ADDAC /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		348560A524119C06008ADDAC /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
+		348560A72411B907008ADDAC /* DailyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
+		348560A82411B907008ADDAC /* DailyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyCell.xib; sourceTree = "<group>"; };
 		6030FC6C23FF0C79007F0901 /* OnrampProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnrampProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6030FC6F23FF0C79007F0901 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6030FC7123FF0C79007F0901 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				347C65A9240DAB350051A837 /* ViewControllers */,
 				3485609B240F2CDC008ADDAC /* HourlyCell.swift */,
 				3485609C240F2CDC008ADDAC /* HourlyCell.xib */,
+				348560A72411B907008ADDAC /* DailyCell.swift */,
+				348560A82411B907008ADDAC /* DailyCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				6030FC7923FF0C7A007F0901 /* Assets.xcassets in Resources */,
 				3485609E240F2CDC008ADDAC /* HourlyCell.xib in Resources */,
 				6030FC7723FF0C79007F0901 /* Main.storyboard in Resources */,
+				348560AA2411B907008ADDAC /* DailyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3485609D240F2CDC008ADDAC /* HourlyCell.swift in Sources */,
+				348560A92411B907008ADDAC /* DailyCell.swift in Sources */,
 				6030FC7423FF0C79007F0901 /* ViewController.swift in Sources */,
 				348560A0240F4409008ADDAC /* HourlyData.swift in Sources */,
 				3485609A240F256F008ADDAC /* HourlyModel.swift in Sources */,

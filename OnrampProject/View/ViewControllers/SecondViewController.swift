@@ -54,16 +54,17 @@ class SecondViewController: UIViewController {
             self.helpMe = hourly.arr
 //            print(hourly.arr[0].dt_txt)
 //            print(helpMe)
+         
         return hourly.arr
 }
     
 }
 
 extension SecondViewController: UITableViewDataSource {
-    
-    
+
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         return hourlyArray.count
         }
 

@@ -27,6 +27,7 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "DailyCell", bundle: nil), forCellReuseIdentifier: "DailyCell" )
     }
     
     
@@ -36,18 +37,19 @@ class ThirdViewController: UIViewController {
         
     }
     
-   
 }
 
 extension ThirdViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyForcast.count
+        return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: " DailyCell" , for: indexPath)
-        cell.textLabel?.text = "Thing"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DailyCell" , for: indexPath) as! DailyCell
+        cell.dayLabel.text = dailyForcast[indexPath.row].dt_txt
+        cell.descriptionLabel.text = dailyForcast[indexPath.row].description
+        cell.tempLabel.text = dailyForcast[indexPath.row].tempString
         return cell
     }
 
