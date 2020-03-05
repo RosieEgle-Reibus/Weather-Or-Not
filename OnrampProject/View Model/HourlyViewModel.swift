@@ -7,19 +7,17 @@
 
 import Foundation
 
-protocol HourlyVMDelegate {
-    func didUpdateHourly(hourlyViewModel:  HourlyViewModel, hourly: HourlyArrayModel)
-}
+
 
 struct HourlyViewModel {
     
     let hourlyURL =  "https://api.openweathermap.org/data/2.5/forecast?appid=b3c709ce36ab49ac160b977a5e95fd14&units=imperial"
     
-    var delegate: HourlyVMDelegate?
     
     func fecthHourlyWeather(cityName: String) {
         let urlString = "\(hourlyURL)&q=\(cityName)"
         preformRequest(urlString: urlString)
+        
     }
     
     func preformRequest(urlString: String) {
@@ -30,9 +28,16 @@ struct HourlyViewModel {
                     return
                 }
                 if let safeData = data {
-                    if let hourly = self.parseJSON(hourlyData: safeData) {
-                        print(hourly)
-                        self.delegate?.didUpdateHourly(hourlyViewModel: self, hourly: hourly)
+                    if let hourly = self.parseJSON(safeData) {
+                        
+                        
+                        
+                        DispatchQueue.main.async {
+                            let hourlyVC = SecondViewController()
+                            hourlyVC.helpMe = hourlyVC.iveGotYouNow(hourly: hourly )
+                            
+                           
+                        }
                     }
                 }
             }
@@ -40,7 +45,7 @@ struct HourlyViewModel {
         }
     }
     
-    func parseJSON(hourlyData: Data) -> HourlyArrayModel? {
+    func parseJSON(_ hourlyData: Data) -> HourlyArrayModel? {
         let decoder = JSONDecoder()
         do {
         let decodedData = try decoder.decode(HourlyData.self, from: hourlyData)

@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     //connects ViewModel to ViewController
     var currentWeatherViewModel = CurrentWeatherViewModel()
@@ -95,10 +96,25 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
             let destinationVC = segue.destination as! SecondViewController
             destinationVC.city = cityLabel.text
         }
+        if segue.identifier == "goToDaily" {
+            let destinationVC = segue.destination as! ThirdViewController
+        }
+        
     }
     
     
-}
+    @IBAction func dailyButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToDaily", sender: self)
+    }
+    
+ 
+    
+        
+        
+    }
+    
+    
+    
 
  
 
