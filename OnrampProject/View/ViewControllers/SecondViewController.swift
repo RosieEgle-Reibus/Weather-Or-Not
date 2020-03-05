@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, HourlyVMDelegate {
 
 
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -29,11 +29,17 @@ class SecondViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HourlyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         hourlyViewModel.fecthHourlyWeather(cityName: city!)
+        hourlyViewModel.delegate = self
     }
     
 
     @IBAction func currentButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func didUpdateHourly(hourlyViewModel:  HourlyViewModel, hourly: HourlyArrayModel) {
+        print(hourly)
+        print(hourly.arr[0].dt_txt)
     }
     
 }
@@ -50,4 +56,6 @@ extension SecondViewController: UITableViewDataSource {
            return cell
         }
 }
+
+
 

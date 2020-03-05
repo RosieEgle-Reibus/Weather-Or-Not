@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct HourlyArrayModel{
-    let hourlyArray: [HourlyModel]
+struct HourlyArrayModel {
+    let arr: [HourlyModel]
 }
+
+
