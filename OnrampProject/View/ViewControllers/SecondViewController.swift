@@ -12,6 +12,7 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var currentButton: UIButton!
     
     var city: String?
     var hourlyArray: [HourlyModel] = [
@@ -37,6 +38,7 @@ class SecondViewController: UIViewController {
         hourlyViewModel.fecthHourlyWeather(cityName: city!)
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HourlyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        currentButton.layer.cornerRadius = 4
     
     }
     

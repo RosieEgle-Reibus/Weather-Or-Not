@@ -11,6 +11,7 @@ class ThirdViewController: UIViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var currentButton: UIButton!
     
     var city: String?
     
@@ -25,7 +26,7 @@ class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        currentButton.layer.cornerRadius = 4
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DailyCell", bundle: nil), forCellReuseIdentifier: "DailyCell" )
     }
