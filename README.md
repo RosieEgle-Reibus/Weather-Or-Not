@@ -4,12 +4,12 @@
 
 ### Project Summary:
 
-Weather Or Not is a weather app that uses the OpenWeather api to make a request based on what city the user types into the textfield and then presents the data that is sent back to the user.  It has an MVVM architecture, the Models represent simple data and are instantiated within the ViewModels.  The ViewModels do all of the networking, and data preparation for visual representation that will be used by the ViewController.  The ViewControllers present the data and control any UI changes and UI actions based on user interactions.
+Weather Or Not is a weather app that uses the OpenWeather api to make a request based on what city the user types into the textfield and then presents the data that is sent back to the user.  It has an MVVM architecture design pattern, the Models represent simple data and are instantiated within the ViewModels.  The ViewModels do all of the networking, and data preparation for visual representation that will be used by the ViewController.  This part is very crucial to the MVVM architecture.  In MVC the controllers control the UI but are also in charge of fetching and parsing the data from the API.  The way that I have used the ViewModel in this app separates those concerns and takes the load off of the controllers.  In this app the ViewControllers only present the data in the UI and control any UI changes and UI actions based on user interactions.
 
 ### Weather Icons Used
 [Icon Finder](https://www.iconfinder.com/iconsets/weather-color-2)
 
-## API used
+### REST API used
 [OpenWeather](https://openweathermap.org/current)
 
 ## Model
@@ -30,6 +30,7 @@ Weather Or Not is a weather app that uses the OpenWeather api to make a request 
 * ViewController.swift - responsible for taking the user input and passing it to the ViewModel and then displaying the response from the api in the UI, also in control of navigation/segues to the other biew controllers through the use of buttons
 * SecondViewController.swift - displays a table of mock hourly data
 * ThirdViewController.swift - displays a table of mock daily data
+* Main.storyboard - The UIView that the ViewControllers are controlling/manipulating
 
 ## Data Persistence
 
@@ -37,12 +38,7 @@ Weather Or Not is a weather app that uses the OpenWeather api to make a request 
 
  
 
-* Use of at least 3 [UIViewControllers](https://developer.apple.com/documentation/uikit/uiviewcontroller).
-* Use of at least one [UIView](https://developer.apple.com/documentation/uikit/uiview). You can subclass UIView and add subviews to that class.
-* The usage of the [MVVM](https://www.raywenderlich.com/34-design-patterns-by-tutorials-mvvm) architectural pattern.
-* Use of a [REST API](https://medium.com/@arteko/the-best-way-to-use-rest-apis-in-swift-95e10696c980). We suggest using [Codable](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types) for handling JSON.
-* Usage of at least 5 UIView/UIControl subclasses (UITableViews, UISegmentedControl, etc).
-* The usage of data persistence - UserDefaults, NSKeyedArchiver, or what makes most sense to you. 
+ 
 
 
 
@@ -58,15 +54,5 @@ Weather Or Not is a weather app that uses the OpenWeather api to make a request 
 
 
 
-### Application Description
-
-Each project submission must include a README file providing an overview of the iOS application and details the app's overall MVVM architecture as well as your design decisions. Screenshots of the iOS app taken from the Xcode simulator or your testing device are also required. This task assesses the critical competency of communicating and documenting technical concepts. See details in the submission information section below.
 
 
-* A description of the overall iOS application
-* A high level architectural overview of your iOS application. e.g. names, relationships and purposes of all UIViewControllers and UIViews
-* Explanations for and descriptions of the design patterns you leveraged
-* [Screenshots](https://stackoverflow.com/questions/7092613/take-screenshots-in-the-ios-simulator) of each View and descriptions of the overall user flow
-(https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/PersistData.html)
-* [Apple Developer App](https://apps.apple.com/us/app/apple-developer/id640199958)
-* [WWDC Videos](https://developer.apple.com/videos/)
