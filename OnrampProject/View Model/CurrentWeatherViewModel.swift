@@ -57,14 +57,16 @@ struct CurrentWeatherViewModel {
         //in case throws error added catch
         do {
         let decodedData = try decoder.decode(CurrentWeatherData.self, from: weatherData)
-            
+            print(decodedData.weather[0].id)
             //get data from json and store
             let name = decodedData.name
             let temp = decodedData.main.temp
             let description = decodedData.weather[0].description
+            let id = decodedData.weather[0].id
             
             //create weather object with weather model with data from json
-            let weather = CurrentWeatherModel(cityName: name, temp: temp, description: description)
+            let weather = CurrentWeatherModel(cityName: name, temp: temp, description: description, id: id)
+            
             return weather
         } catch {
             delegate?.didFailWithError(error: error)

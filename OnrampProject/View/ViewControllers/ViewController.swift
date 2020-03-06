@@ -15,18 +15,18 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
-    
     @IBOutlet weak var hourlyButton: UIButton!
-    
-    
+    @IBOutlet weak var dailyButton: UIButton!
+    @IBOutlet weak var conditionImageView: UIImageView!
     
     //connects ViewModel to ViewController
     var currentWeatherViewModel = CurrentWeatherViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIButton.appearance().layer.cornerRadius = 4
         hourlyButton.layer.cornerRadius = 4
+        dailyButton.layer.cornerRadius = 4
+
 
         
         //Text field sends user entry/activity to VC
@@ -83,6 +83,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
             self.temperatureLabel.text = weather.tempString
             self.cityLabel.text = weather.cityName
             self.descriptionLabel.text = weather.description
+            self.conditionImageView.image = UIImage(named: weather.conditonName)
+            print(weather.conditonName)
         }
     }
     
