@@ -37,9 +37,9 @@ Weather Or Not is a weather app that uses the OpenWeather api to make a request 
 * UserDefaults - I set them up within ViewController.swift so that the last city that was searched becomes the default, so that they return to the app it will be displaying that same city's information.  I did this based on the assumption that most people generally stay in their home cities and are not usually looking up the weather in places they do not live  
 
 
-### User Flow
+## User Flow
 
-## ViewController
+### ViewController
 
 This is the first screen the user sees
 
@@ -47,10 +47,23 @@ This is the first screen the user sees
 
 They can enter their city into to the textfield and they can either press the magnifying glass search button or they can hit the "GO" key on the keyboard.  This then triggers the fetching of the data from the api.  The city name will be displayed, as well as the temperature, a correlating weather icon and a description of conditions.  From there they can either press the "Hourly" button or "5-day" button which will take them to a different screen.
 
-## SecondViewController
+### SecondViewController
+
+<img src="SecondViewController.png" width="400"/>
+
+If the hourly button is pressed it will send the user to this screen where they can view a table of mock hourly data.  The user can then press the current button to return to the current weather page or ViewController.swift.
+
+### ThirdViewController
+
+<img src="ThirdViewController.png" width="400"/>
+
+If the 5-Day button is pressed it will send the user to this screen where they can view a table of mock daily data.  The user can then press the current button to return to the current weather page or ViewController.swift.
 
 
+### Challenges
 
+* As you can see I had a really hard time making my custom table cells display in the same way for both view controllers with tables in them.  Right now they are two separate Cell.xib files and I'm sure I could use the same one for both I just couldn't figure out how.
+* I did try to make a second api call to the 3 hour/5day api through the HourlyViewModel.  I was able to get the data easily enough and I was able to pass it forward to my view controller.  But I ran into trouble because the table was being populated in viewDidLoad() and even though I was also fetching the data in viewDidLoad() it was coming back after the table had loaded no matter what I tried, I know it has something to do with the asynchronous data loading.  Since I'd alreay made a succesful api call and rendering with my CurrentWeatherView model and that met the project requirements, I ended up having to just populate the table with mock data, which was not what I wanted but I will come back to it at a later date.
 
 
 
