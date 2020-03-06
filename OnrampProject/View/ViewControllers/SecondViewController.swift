@@ -13,8 +13,12 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentButton: UIButton!
+   
+    @IBOutlet weak var conditionImageView: UIImageView!
     
     var city: String?
+    var conditionName: String?
+    
     var hourlyArray: [HourlyModel] = [
         HourlyModel(dt_txt: "3PM", temp: 63.45, description: "light clouds"),
         HourlyModel(dt_txt: "6PM", temp: 63.88, description: "light rain"),
@@ -39,7 +43,7 @@ class SecondViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HourlyCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         currentButton.layer.cornerRadius = 4
-    
+        conditionImageView.image = UIImage(named: conditionName!)
     }
     
 

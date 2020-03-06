@@ -12,8 +12,11 @@ class ThirdViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentButton: UIButton!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var conditionImageView: UIImageView!
     
     var city: String?
+    var conditionName: String?
     
     var dailyForcast = [
         DailyModel(dt_txt: "Monday", temp: 55.33, description: "Light Clouds"),
@@ -29,6 +32,8 @@ class ThirdViewController: UIViewController {
         currentButton.layer.cornerRadius = 4
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DailyCell", bundle: nil), forCellReuseIdentifier: "DailyCell" )
+        cityNameLabel.text = city
+        conditionImageView.image = UIImage(named: conditionName!)
     }
     
     

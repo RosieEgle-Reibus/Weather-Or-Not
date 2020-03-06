@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     @IBOutlet weak var dailyButton: UIButton!
     @IBOutlet weak var conditionImageView: UIImageView!
     
+    var conditionName: String?
+    
     //connects ViewModel to ViewController
     var currentWeatherViewModel = CurrentWeatherViewModel()
     
@@ -80,6 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
     
     func didUpdateWeather(_ currentWeatherViewModel: CurrentWeatherViewModel, weather: CurrentWeatherModel ) {
         DispatchQueue.main.async {
+            self.conditionName = weather.conditonName
             self.temperatureLabel.text = weather.tempString
             self.cityLabel.text = weather.cityName
             self.descriptionLabel.text = weather.description
@@ -102,13 +105,17 @@ class ViewController: UIViewController, UITextFieldDelegate, CurrentWeatherVMDel
         if segue.identifier == "goToHourly" {
             let destinationVC = segue.destination as! SecondViewController
             destinationVC.city = cityLabel.text
+            destinationVC.conditionName = conditionName
+
         }
         if segue.identifier == "goToDaily" {
             let destinationVC = segue.destination as! ThirdViewController
+            destinationVC.city = cityLabel.text
+            destinationVC.conditionName = conditionName
+
         }
         
     }
-    
     
     @IBAction func dailyButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToDaily", sender: self)
