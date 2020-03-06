@@ -37,11 +37,18 @@ Weather Or Not is a weather app that uses the OpenWeather api to make a request 
 * UserDefaults - I set them up within ViewController.swift so that the last city that was searched becomes the default, so that they return to the app it will be displaying that same city's information.  I did this based on the assumption that most people generally stay in their home cities and are not usually looking up the weather in places they do not live  
 
 
-![](ViewController.png)
+### User Flow
 
- 
+## ViewController
 
- 
+This is the first screen the user sees
+
+<img src="ViewController.png" width="400"/> 
+
+They can enter their city into to the textfield and they can either press the magnifying glass search button or they can hit the "GO" key on the keyboard.  This then triggers the fetching of the data from the api.  The city name will be displayed, as well as the temperature, a correlating weather icon and a description of conditions.  From there they can either press the "Hourly" button or "5-day" button which will take them to a different screen.
+
+## SecondViewController
+
 
 
 
